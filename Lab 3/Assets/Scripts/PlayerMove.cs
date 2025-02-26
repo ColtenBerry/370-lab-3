@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Horizontal", horizontal);
         if (Input.GetKeyDown("space") && !animator.GetBool("IsJumping"))
         {
-            rigidbody2D.AddForce(Vector2.up * 300 * rigidbody2D.mass);
+            rigidbody2D.AddForce(Vector2.up * 350 * rigidbody2D.mass);
             animator.SetBool("IsJumping", true);
         }
 
