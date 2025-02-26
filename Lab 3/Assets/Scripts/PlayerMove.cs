@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rigidbody2D;
     private SpriteRenderer spriteRenderer;
-    // private Animator animator;
+    private Animator animator;
     float horizontal;
 
     public float runSpeed = 5f;
@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        // animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         if (OnLandEvent == null)
         {
             OnLandEvent = new UnityEvent();
@@ -35,13 +35,14 @@ public class PlayerMovement : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         if (horizontal < 0)
         {
-            spriteRenderer.flipX = false;
+            spriteRenderer.flipX = true;
         }
         else if (horizontal > 0)
         {
-            spriteRenderer.flipX = true;
+            spriteRenderer.flipX = false;
         }
-        // animator.SetFloat("horizontal", horizontal);
+        animator.SetFloat("Horizontal", horizontal);
+        Debug.Log(horizontal);
         // if (Input.GetKeyDown("space") && !animator.GetBool("jump"))
         if (Input.GetKeyDown("space"))
         {
