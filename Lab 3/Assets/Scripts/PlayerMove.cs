@@ -42,13 +42,11 @@ public class PlayerMovement : MonoBehaviour
             spriteRenderer.flipX = false;
         }
         animator.SetFloat("Horizontal", horizontal);
-        Debug.Log(horizontal);
         // if (Input.GetKeyDown("space") && !animator.GetBool("jump"))
         if (Input.GetKeyDown("space"))
         {
             rigidbody2D.AddForce(Vector2.up * 500 * rigidbody2D.mass);
-            // animator.SetBool("jump", true);
-            Debug.Log("space key was pressed");
+            animator.SetBool("IsJumping", true);
         }
 
 
@@ -69,10 +67,12 @@ public class PlayerMovement : MonoBehaviour
         {
             if (colliders[i].gameObject != gameObject)
             {
+                Debug.Log("Collision!");
                 m_Grounded = true;
                 if (!wasGrounded)
                 {
                     OnLandEvent.Invoke();
+                    Debug.Log("Land Event Invoked!");
                 }
             }
         }
@@ -80,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Landed()
     {
-        // animator.SetBool("jump", false);
+        animator.SetBool("IsJumping", false);
     }
 
 }
