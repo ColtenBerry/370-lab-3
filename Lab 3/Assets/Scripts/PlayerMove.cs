@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     float horizontal;
 
     public float runSpeed = 5f;
+    private bool canMove;
     private bool m_Grounded = true;
 
     public UnityEvent OnLandEvent;
@@ -23,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
         rigidbody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        canMove = true;
         if (OnLandEvent == null)
         {
             OnLandEvent = new UnityEvent();
@@ -69,7 +71,10 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rigidbody2D.linearVelocity = new Vector2(horizontal * runSpeed, rigidbody2D.linearVelocity.y);
+        if (canMove)
+        {
+            rigidbody2D.linearVelocity = new Vector2(horizontal * runSpeed, rigidbody2D.linearVelocity.y);
+        }
 
         bool wasGrounded = m_Grounded;
 
@@ -100,6 +105,16 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsJumping", true);
 
         }
+    }
+
+    public void enableMovement()
+    {
+        canMove = true;
+    }
+
+    public void disableMovement()
+    {
+        canMove = false;
     }
 
     public void Landed()

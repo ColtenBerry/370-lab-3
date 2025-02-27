@@ -124,6 +124,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void eatCarrot(GameObject player, Animator animator, GameObject carrot)
+    {
+        StartCoroutine(eatCarrotRoutine(player, animator, carrot));
+    }
+
+    IEnumerator eatCarrotRoutine(GameObject player, Animator animator, GameObject carrot)
+    {
+        yield return new WaitForSeconds(5);
+        player.GetComponent<PlayerMovement>().enableMovement();
+        animator.SetBool("IsEating", false);
+        Destroy(carrot);
+
+    }
+
 
 
 

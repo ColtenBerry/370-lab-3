@@ -5,11 +5,13 @@ public class PlayerInteract : MonoBehaviour
 
     private float interactDistance = 2.0f;
     bool inConversation;
+    private Animator animator;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        animator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -39,7 +41,10 @@ public class PlayerInteract : MonoBehaviour
                 if (hit.collider.gameObject.name == "Carrot")
                 {
                     print("Hit Carrot");
-                    Destroy(hit.collider.gameObject);
+                    animator.SetBool("IsEating", true);
+                    gameObject.GetComponent<PlayerMovement>().disableMovement();
+                    GameManager.Instance.eatCarrot(gameObject, animator, hit.collider.gameObject); //starts animation timer for eating carrot
+
                 }
             }
 
