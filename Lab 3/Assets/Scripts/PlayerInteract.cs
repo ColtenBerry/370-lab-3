@@ -41,8 +41,6 @@ public class PlayerInteract : MonoBehaviour
                 if (hit.collider.gameObject.name == "Carrot")
                 {
                     print("Hit Carrot");
-                    animator.SetBool("IsEating", true);
-                    gameObject.GetComponent<PlayerMovement>().disableMovement();
                     GameManager.Instance.eatCarrot(gameObject, animator, hit.collider.gameObject); //starts animation timer for eating carrot
 
                 }

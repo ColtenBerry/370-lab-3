@@ -126,6 +126,10 @@ public class GameManager : MonoBehaviour
 
     public void eatCarrot(GameObject player, Animator animator, GameObject carrot)
     {
+        animator.SetBool("IsEating", true);
+        player.GetComponent<PlayerMovement>().disableMovement();
+        ParticleSystem p = carrot.GetComponent<CarrotScript>().particleSystem;
+        p.Play();
         StartCoroutine(eatCarrotRoutine(player, animator, carrot));
     }
 
