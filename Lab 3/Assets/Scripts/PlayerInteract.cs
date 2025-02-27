@@ -38,7 +38,7 @@ public class PlayerInteract : MonoBehaviour
             if (hit)
             {
                 Debug.Log("Hit Something");
-                if (hit.collider.gameObject.name == "Carrot")
+                if (hit.collider.gameObject.name.Contains("Carrot"))
                 {
                     print("Hit Carrot");
                     GameManager.Instance.eatCarrot(gameObject, animator, hit.collider.gameObject); //starts animation timer for eating carrot

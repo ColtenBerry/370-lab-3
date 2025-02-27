@@ -10,11 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 61b9438691f5bcf46b8b4fedba17947a, type: 3}
-  m_Name: NPC
+  m_Name: NPC (2)
   m_EditorClassIdentifier: 
   dialogue:
-  - Welcome brave explorer. Welcome to my world. Your task is simple, you must eat
-    all the carrots you can find. Throughout your journey, you will be tested. If
-    you pass these trials, you will be awarded with a carrot
-  - GO GO GO GO GET THE CARRROT
-  - This should never get played
+  - 'Hey man, you made it! You found your first carrot! If you want to eat it, just
+    stand near it and press "e". '
+  - Go on man, eat that carrot!
