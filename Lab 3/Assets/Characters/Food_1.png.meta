@@ -748,7 +748,6 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-<<<<<<< HEAD:Lab 3/Assets/Characters/Food_1.png.meta
       Food_1_0: 4514861930614876757
       Food_1_1: 2472114631909965368
       Food_1_10: -1452646267448686346
@@ -774,41 +773,6 @@ TextureImporter:
       Food_1_7: 8193387975478101858
       Food_1_8: 6216300851244695096
       Food_1_9: -5905244395891168679
-=======
-      hud_spritesheet_0: 5367918592779945989
-      hud_spritesheet_1: 9121705187782358487
-      hud_spritesheet_10: -2649293190167409012
-      hud_spritesheet_11: 8890089790291953759
-      hud_spritesheet_12: 378849735587214574
-      hud_spritesheet_13: -3897014285262925587
-      hud_spritesheet_14: 777403736181348893
-      hud_spritesheet_15: 2144937363057444290
-      hud_spritesheet_16: 2637535094506294203
-      hud_spritesheet_17: -1425770447491404306
-      hud_spritesheet_18: -7499938249585835210
-      hud_spritesheet_19: 4616537313407236148
-      hud_spritesheet_2: 7180046032709329396
-      hud_spritesheet_20: 5028910832305278206
-      hud_spritesheet_21: 2600047257305913945
-      hud_spritesheet_22: 6332041736302909294
-      hud_spritesheet_23: 8934453415485628854
-      hud_spritesheet_24: -8648008687981119647
-      hud_spritesheet_25: 8451674292962682995
-      hud_spritesheet_26: 9101794931119154686
-      hud_spritesheet_27: -5310809827711675026
-      hud_spritesheet_28: 5849852036160895636
-      hud_spritesheet_29: 5475809251770298334
-      hud_spritesheet_3: 827743367153031274
-      hud_spritesheet_30: 8061169335708508527
-      hud_spritesheet_31: 492109989092574570
-      hud_spritesheet_32: -4575654639360901447
-      hud_spritesheet_4: -8247431051255199016
-      hud_spritesheet_5: 7791557517557213846
-      hud_spritesheet_6: -4888024198790980574
-      hud_spritesheet_7: 1613825584171145290
-      hud_spritesheet_8: -8337630448993744320
-      hud_spritesheet_9: -1369007798860032869
->>>>>>> 5ece860 (Henry initial load):Lab 3/Assets/Palette/Base pack/HUD/hud_spritesheet.png.meta
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
