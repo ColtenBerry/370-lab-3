@@ -87,11 +87,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 Debug.Log("Hit Ground!");
                 m_Grounded = true;
-                if (!wasGrounded)
-                {
-                    OnLandEvent.Invoke();
-                    Debug.Log("Land Event Invoked!");
-                }
+                // if (!wasGrounded)
+                // {
+                OnLandEvent.Invoke();
+                Debug.Log("Land Event Invoked!");
+                // }
             }
         }
         if (!m_Grounded && wasGrounded)
