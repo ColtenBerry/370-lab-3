@@ -53,7 +53,7 @@ public class PlayerInteract : MonoBehaviour
                 if (npc_interact_hit.collider.gameObject.TryGetComponent(out NPC npc))
                 {
                     Debug.Log("Hit something (NPC)");
-                    if (npc_interact_hit.collider.gameObject.name == "NPC")
+                    if (npc_interact_hit.collider.gameObject.name.Contains("NPC"))
                     {
                         print("Hit NPC");
                         GameManager.Instance.StartDialogue(npc.dialogueAsset.dialogue, npc.StartPosition, npc.npcName, 2);
