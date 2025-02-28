@@ -6,6 +6,10 @@ using UnityEngine.Events;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rigidbody2D;
+
+    public PhysicsMaterial2D smoothMaterial;
+
+    public PhysicsMaterial2D wallJumpMaterial;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
     float horizontal;
@@ -23,6 +27,13 @@ public class PlayerMovement : MonoBehaviour
 
     private int jumpsRemaining;
 
+    private bool isTouchingWall;
+
+    private bool canWallJump;
+
+    public LayerMask obstacles;
+
+
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -39,6 +50,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (isTouchingWall)
+        {
+            Debug.Log("Touching Wall");
+        }
         horizontal = Input.GetAxisRaw("Horizontal");
         if (horizontal < 0)
         {
@@ -50,12 +65,23 @@ public class PlayerMovement : MonoBehaviour
         }
         animator.SetFloat("Horizontal", horizontal);
 
-        if (Input.GetKeyDown("space") && jumpsRemaining > 0)
+        if (Input.GetKeyDown("space"))
         {
-            jumpsRemaining--;
-            rigidbody2D.AddForce(Vector2.up * 350 * rigidbody2D.mass);
-            animator.SetBool("IsJumping", true);
-            m_Grounded = false;  
+            if (canWallJump)
+            {
+                Debug.Log("Wall Jumping!");
+                rigidbody2D.AddForce(Vector2.up * 350 * rigidbody2D.mass);
+                jumpsRemaining = 1;
+                animator.SetBool("IsJumping", true);
+                m_Grounded = false;
+            }
+            else if (jumpsRemaining > 0)
+            {
+                jumpsRemaining--;
+                rigidbody2D.AddForce(Vector2.up * 350 * rigidbody2D.mass);
+                animator.SetBool("IsJumping", true);
+                m_Grounded = false;  
+            }
         }
     }
 
@@ -74,6 +100,11 @@ public class PlayerMovement : MonoBehaviour
             m_Grounded = false;
             lastGroundTime = Time.time;
         }
+
+        isTouchingWall = Physics2D.OverlapCircle(transform.position + new Vector3(0.3f * (spriteRenderer.flipX ? -1 : 1), 0), 0.2f, LayerMask.GetMask("Jumpable Ground"));
+
+        canWallJump = (carrotsCollected >= 2) && isTouchingWall;
+
 
         for (int i = 0; i < colliders.Length; i++)
         {
@@ -132,5 +163,11 @@ public class PlayerMovement : MonoBehaviour
         carrotsCollected++;
         Debug.Log("Collected Carrot! Total: " + carrotsCollected);
         jumpsRemaining = 2;
+        if (carrotsCollected == 2)
+        {
+            Debug.Log("Wall Jump Unlocked");
+            GetComponent<Collider2D>().sharedMaterial = wallJumpMaterial;
+
+        }
     }
 }
