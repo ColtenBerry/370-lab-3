@@ -4,6 +4,8 @@ public class EnemyMovement : MonoBehaviour
 {
     public float speed = 5.0f;
     private Rigidbody2D rigidbody2D;
+    private SpriteRenderer spriteRenderer;
+
 
     private bool isGoingLeft = true;
 
@@ -11,12 +13,12 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -29,6 +31,7 @@ public class EnemyMovement : MonoBehaviour
         {
             Debug.Log("Hit " + collision.collider.gameObject.name);
             isGoingLeft = !isGoingLeft;
+            spriteRenderer.flipX = !spriteRenderer.flipX;
         }
     }
 
