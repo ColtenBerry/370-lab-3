@@ -35,6 +35,11 @@ public class PlayerMovement : MonoBehaviour
     private bool canWallJump;
 
     public LayerMask obstacles;
+    [SerializeField] private AudioSource playerAudioSource;
+    [SerializeField] private AudioClip footstepsSound;
+
+    [SerializeField] private AudioClip eatingSound;
+
 
 
     void Start()
@@ -49,6 +54,21 @@ public class PlayerMovement : MonoBehaviour
             OnLandEvent = new UnityEvent();
         }
         OnLandEvent.AddListener(Landed);
+    }
+
+    public void PlayFootstep()
+    {
+        if (m_Grounded && footstepsSound != null)
+        {
+            playerAudioSource.PlayOneShot(footstepsSound);
+        }
+    }
+
+    public void PlayEating()
+    {
+        playerAudioSource.PlayOneShot(eatingSound);
+        //https://opengameart.org/content/rabbit-eating
+        //https://opengameart.org/content/7-eating-crunches
     }
 
     void Update()
