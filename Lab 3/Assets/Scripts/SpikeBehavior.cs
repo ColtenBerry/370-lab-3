@@ -19,6 +19,7 @@ public class SpikeBehavior : MonoBehaviour
         if (collision.collider.gameObject.name == "Player")
         {
             Debug.Log("Player Hit Spikes !!!"); //TODO make some kind of hit
+            GameManager.Instance.OnDeath();
         }
     }
 }

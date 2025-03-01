@@ -26,6 +26,7 @@ public class EnemyMovement : MonoBehaviour
         if (collision.collider.gameObject.name == "Player")
         {
             Debug.Log("hit Player!");
+            GameManager.Instance.OnDeath();
         }
         else if (collision.collider.gameObject.name != "Ground Layer")
         {

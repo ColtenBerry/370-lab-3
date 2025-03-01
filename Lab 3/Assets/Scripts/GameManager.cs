@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -140,6 +141,11 @@ public class GameManager : MonoBehaviour
         animator.SetBool("IsEating", false);
         Destroy(carrot);
 
+    }
+
+    public void OnDeath()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
 
