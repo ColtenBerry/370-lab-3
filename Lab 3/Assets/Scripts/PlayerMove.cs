@@ -28,6 +28,9 @@ public class PlayerMovement : MonoBehaviour
     private int jumpsRemaining;
 
     private bool isTouchingWall;
+        
+    private bool isTouchingWallLeft;
+    private bool isTouchingWallRight;
 
     private bool canWallJump;
 
@@ -68,13 +71,20 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             if (canWallJump)
-            {
-                Debug.Log("Wall Jumping!");
-                rigidbody2D.AddForce(Vector2.up * 350 * rigidbody2D.mass);
-                jumpsRemaining = 1;
-                animator.SetBool("IsJumping", true);
-                m_Grounded = false;
-            }
+        {
+            Debug.Log("Wall Jumping!");
+            rigidbody2D.AddForce(Vector2.up * 350 * rigidbody2D.mass);
+            
+            // Jump away from the wall
+            Vector2 jumpDirection = Vector2.right;
+            if (isTouchingWallRight)
+                jumpDirection = Vector2.left;
+                
+            rigidbody2D.AddForce(jumpDirection * 350 * rigidbody2D.mass);
+            jumpsRemaining = 2;
+            animator.SetBool("IsJumping", true);
+            m_Grounded = false;
+        }
             else if (jumpsRemaining > 0)
             {
                 jumpsRemaining--;
@@ -100,8 +110,14 @@ public class PlayerMovement : MonoBehaviour
             m_Grounded = false;
             lastGroundTime = Time.time;
         }
+        Vector2 characterSize = GetComponent<Collider2D>().bounds.size;
+        Vector2 leftRayOrigin = (Vector2)transform.position + new Vector2(-characterSize.x/2, 0);
+        Vector2 rightRayOrigin = (Vector2)transform.position + new Vector2(characterSize.x/2, 0);
+        isTouchingWallLeft = !m_Grounded && Physics2D.Raycast(leftRayOrigin, Vector2.left, 0.1f, LayerMask.GetMask("Jumpable Ground"));
+        isTouchingWallRight = !m_Grounded && Physics2D.Raycast(rightRayOrigin, Vector2.right, 0.1f, LayerMask.GetMask("Jumpable Ground"));
+        isTouchingWall = isTouchingWallLeft || isTouchingWallRight;
 
-        isTouchingWall = Physics2D.OverlapCircle(transform.position + new Vector3(0.3f * (spriteRenderer.flipX ? -1 : 1), 0), 0.2f, LayerMask.GetMask("Jumpable Ground"));
+        isTouchingWall = isTouchingWallLeft || isTouchingWallRight;
 
         canWallJump = (carrotsCollected >= 2) && isTouchingWall;
 
