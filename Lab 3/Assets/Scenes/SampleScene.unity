@@ -947,7 +947,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -58, y: 24.7, z: -10}
+  m_LocalPosition: {x: 69.15, y: -4.3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1608,7 +1608,7 @@ Transform:
   m_GameObject: {fileID: 789956906}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -58, y: 24.7, z: 0}
+  m_LocalPosition: {x: 69.95, y: -4.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2157,7 +2157,7 @@ MonoBehaviour:
   firstInteraction: 1
   repeatStartPosition: 1
   npcName: Jerry
-  dialogueAsset: {fileID: 11400000, guid: 04ccf62b84ef105408033f850dfd7867, type: 2}
+  dialogueAsset: {fileID: 11400000, guid: a1fd204ca153ca7458006668c1cd34dc, type: 2}
 --- !u!61 &980957602
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10510,7 +10510,7 @@ CompositeCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 6efba34d905b8fb41a4c9cc057914e9d, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -12810,7 +12810,7 @@ MonoBehaviour:
   firstInteraction: 1
   repeatStartPosition: 1
   npcName: Jerry
-  dialogueAsset: {fileID: 11400000, guid: 04ccf62b84ef105408033f850dfd7867, type: 2}
+  dialogueAsset: {fileID: 11400000, guid: d53a4d4902e966d4d82357d6d6cf86a7, type: 2}
 --- !u!61 &1698178030
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12961,7 +12961,7 @@ MonoBehaviour:
   firstInteraction: 1
   repeatStartPosition: 1
   npcName: Jerry
-  dialogueAsset: {fileID: 11400000, guid: 04ccf62b84ef105408033f850dfd7867, type: 2}
+  dialogueAsset: {fileID: 11400000, guid: 3823be9e793ede5438ff4753391a0cf3, type: 2}
 --- !u!61 &1714054577
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13340,7 +13340,7 @@ MonoBehaviour:
   firstInteraction: 1
   repeatStartPosition: 1
   npcName: Jerry
-  dialogueAsset: {fileID: 11400000, guid: 04ccf62b84ef105408033f850dfd7867, type: 2}
+  dialogueAsset: {fileID: 11400000, guid: 8a839181fae0235459366a44b78e12fa, type: 2}
 --- !u!61 &1849477961
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14015,7 +14015,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1384157222584932267, guid: d238b13fc828a7c4290ea98887dfa794, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 80.05
+      value: 83.8
       objectReference: {fileID: 0}
     - target: {fileID: 1384157222584932267, guid: d238b13fc828a7c4290ea98887dfa794, type: 3}
       propertyPath: m_LocalPosition.y
