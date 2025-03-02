@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ParallaxScroll : MonoBehaviour
 {
-
     public float backgroundSize;
     public float parallaxSpeed;
 
@@ -14,6 +13,8 @@ public class ParallaxScroll : MonoBehaviour
     private Transform cameraTransform;
 
     private GameObject emptyGameObject;
+
+    [SerializeField] PlayerMovement player;
     private Transform[] layers;
     private float viewZone = 10;
     private int leftIndex;
@@ -72,6 +73,11 @@ public class ParallaxScroll : MonoBehaviour
             leftIndex = 0;
         }
 
+    }
+
+    private void VerticalFix()
+    {
+        
     }
 
     // Update is called once per frame

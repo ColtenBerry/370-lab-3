@@ -1,20 +1,27 @@
 using System;
 using System.Linq;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class ParallaxParent : MonoBehaviour
 {
-
     public Sprite[] backgrounds;
-
     public float backgroundSize;
+    
+    [Tooltip("Vertical spacing between background layers")]
+    public float verticalSpacing = 0.5f;
 
     void Awake()
     {
         for (int i = 0; i < backgrounds.Length; i++) {
             GameObject go = new GameObject("Layer" + i);
             go.transform.parent = transform;
-            go.transform.localPosition = new Vector3(0, 0, 0);
+            
+            // Apply vertical spacing between layers
+            float verticalOffset = i * verticalSpacing;
+            go.transform.localPosition = new Vector3(0, verticalOffset, 0);
+            
             ParallaxScroll ps = go.AddComponent<ParallaxScroll>();
             ps.sprite = backgrounds[i];
             ps.backgroundSize = backgroundSize;
@@ -33,6 +40,6 @@ public class ParallaxParent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
