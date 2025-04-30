@@ -6,8 +6,9 @@ public class PlayerInteract : MonoBehaviour
     private float interactDistance = 2.0f;
     bool inConversation;
     private Animator animator;
-    
+
     private PlayerMovement player;
+    public bool isHowToScene;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -45,8 +46,14 @@ public class PlayerInteract : MonoBehaviour
                 {
                     print("Hit Carrot");
                     player.CollectCarrot();
-                    GameManager.Instance.eatCarrot(gameObject, animator, hit.collider.gameObject); //starts animation timer for eating carrot
-                    
+                    if (isHowToScene)
+                    {
+                        HowToPlayScript.Instance.eatCarrot(gameObject, animator, hit.collider.gameObject);
+                    }
+                    else
+                    {
+                        GameManager.Instance.eatCarrot(gameObject, animator, hit.collider.gameObject); //starts animation timer for eating carrot
+                    }
                 }
             }
 
