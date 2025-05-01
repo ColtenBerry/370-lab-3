@@ -12,7 +12,14 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("HowToPlay");
     }
-
+    public void openCreditsScene()
+    {
+        SceneManager.LoadScene("Credits"); 
+    }
+    public void openMainMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
     public void quitGame()
     {
         Debug.Log("Quit");
